@@ -78,6 +78,22 @@ mr release/1.2.0 到 prod --title "release: 1.2.0"
 - `DINGTALK_SECRET`（可选）
 - `NOTIFY_FIXED_MOBILES`（逗号分隔）
 
+### 4.4 CLI 产物形态与安装
+
+CLI 提供两种分发形态，默认推荐二进制，npm 作为补充：
+
+1. 二进制（推荐）
+- 产物：单文件可执行程序 `mr`（按平台分别构建：macOS/Linux）。
+- 安装方式：下载对应平台产物，放入本机 `PATH`（例如 `/usr/local/bin/mr`），赋予可执行权限。
+- 适用场景：团队内统一发版、无需 Node.js 运行时。
+
+2. npm 全局包
+- 产物：npm 包，安装后暴露 `mr` 命令。
+- 安装方式：`npm i -g <mr-cli-package>`。
+- 适用场景：已有 Node.js 工具链、希望快速升级版本。
+
+本方案实现阶段以 npm 形态优先落地（开发验证快），二进制形态通过构建流水线补齐。
+
 ## 5. 通知规则
 
 ### 5.1 触发条件
